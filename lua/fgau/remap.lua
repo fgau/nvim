@@ -10,3 +10,5 @@ vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- netrw directoy listing
+vim.keymap.set("n", "<leader>n", ":Ex<CR>")
