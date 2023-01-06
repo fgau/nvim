@@ -12,3 +12,6 @@ vim.keymap.set("v", ">", ">gv")
 
 -- netrw directoy listing
 vim.keymap.set("n", "<leader>n", ":Ex<CR>")
+
+-- lazygit
+vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")

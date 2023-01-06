@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
+    use('kdheepak/lazygit.nvim')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
