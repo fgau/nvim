@@ -34,6 +34,8 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
+vim.g.netrw_banner = 0          -- hide the help text in the netrw banner
+
 -- Run gofmt + goimport on save
 vim.api.nvim_exec([[lua require('go').setup()]], false)
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
