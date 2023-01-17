@@ -38,8 +38,13 @@ lsp.set_preferences({
     }
 })
 
+lsp.setup()
+
 vim.diagnostic.config({
     virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+    severity_sort = true,
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -62,4 +67,3 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-lsp.setup()
