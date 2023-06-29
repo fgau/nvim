@@ -40,5 +40,5 @@ vim.g.netrw_banner = 0          -- hide the help text in the netrw banner
 vim.api.nvim_exec([[lua require('go').setup()]], false)
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
-vim.g.isort_command = 'isort'
+-- vim.g.isort_command = 'isort'
 
