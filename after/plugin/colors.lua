@@ -1,6 +1,7 @@
 function ColorMyPencils(color)
     -- color = color or "rose-pine"
 	color = color or "gruvbox-material"
+	-- color = color or "darcula-dark"
 	vim.cmd.colorscheme(color)
 
     -- transparency is not working with alacritty and sway

@@ -11,7 +11,12 @@ return require('packer').startup(function(use)
     }
 
     use('sainnhe/gruvbox-material')
-    -- use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+
+    use {
+        'xiantang/darcula-dark.nvim',
+        requires = {"nvim-treesitter/nvim-treesitter"}
+    }
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
@@ -19,12 +24,28 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('kdheepak/lazygit.nvim')
 
+    use({
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require('null-ls').setup()
+        end,
+        requires = { 'nvim-lua/plenary.nvim' },
+    })
+
     use {
         'VonHeikemen/lsp-zero.nvim',
   	    requires = {
     	    -- LSP Support
     	    {'neovim/nvim-lspconfig'},
-    		{'williamboman/mason.nvim'},
+    		{
+                'williamboman/mason.nvim',
+                opts = {
+                    ensure_installed = {
+                        "pyright",
+                        "isort",
+                    }
+                },
+            },
     		{'williamboman/mason-lspconfig.nvim'},
 
     		-- Autocompletion
@@ -42,7 +63,7 @@ return require('packer').startup(function(use)
     }
 
     use('ray-x/go.nvim')
-    use('stsewd/isort.nvim')
+    -- use('stsewd/isort.nvim')
     use('nvim-lualine/lualine.nvim')
 
     use {
