@@ -1,1 +1,1 @@
-my neovim config, now with lazy packer.
+my neovim config, now with [lazy](https://github.com/folke/lazy.nvim) plugin manger.
