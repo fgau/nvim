@@ -2,6 +2,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+local opts = { noremap = true, silent = true }
 
 -- General Keymaps -------------------
 
@@ -39,3 +40,28 @@ keymap.set("n", "<leader>g", ":LazyGit<CR>")
 -- undotree toggle
 keymap.set("n", "<leader><F5>", ":UndotreeToggle<CR>")
 
+-- Move text up and down
+keymap.set("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+keymap.set("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+
+-- Insert --
+-- Press jk fast to exit insert mode
+keymap.set("i", "jk", "<ESC>", opts)
+keymap.set("i", "kj", "<ESC>", opts)
+
+-- Visual --
+-- Stay in indent mode
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
+
+-- Move text up and down
+keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
+keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap.set("v", "p", '"_dP', opts)
+
+-- Visual Block --
+-- Move text up and down
+keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
