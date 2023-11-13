@@ -42,7 +42,8 @@ opt.incsearch = true
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard = "unnamedplus"
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -64,3 +65,4 @@ vim.g.netrw_banner = 0
 -- set netrw in tree
 vim.g.netrw_liststyle = 3
 
+opt.mouse = ""
