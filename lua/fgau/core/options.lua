@@ -63,6 +63,6 @@ opt.colorcolumn = "80"
 vim.g.netrw_banner = 0
 
 -- set netrw in tree
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 
 opt.mouse = ""
