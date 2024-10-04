@@ -23,6 +23,15 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
+opt.list = true
+opt.listchars = {
+	eol = " ",
+	tab = "  ",
+	trail = "•",
+	extends = "❯",
+	precedes = "❮",
+}
+
 -- appearance
 
 -- turn on termguicolors for nightfly colorscheme to work
