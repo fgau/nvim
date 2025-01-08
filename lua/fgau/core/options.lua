@@ -32,6 +32,8 @@ opt.listchars = {
 	precedes = "❮",
 }
 
+opt.encoding = "utf-8"
+
 -- appearance
 
 -- turn on termguicolors for nightfly colorscheme to work
