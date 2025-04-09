@@ -62,9 +62,20 @@ return {
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
+		local icons = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "󰠠",
+		}
+
 		vim.diagnostic.config({
-			virtual_text = true,
-			underline = false,
+			virtual_text = {
+				prefix = function(diagnostic)
+					return icons[diagnostic.severity] or "●"
+				end,
+				spacing = 4,
+			},
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = "",
@@ -72,13 +83,10 @@ return {
 					[vim.diagnostic.severity.INFO] = "",
 					[vim.diagnostic.severity.HINT] = "󰠠",
 				},
-				linehl = {
-					[vim.diagnostic.severity.ERROR] = "ErrorMsg",
-				},
-				numhl = {
-					[vim.diagnostic.severity.WARN] = "WarningMsg",
-				},
 			},
+			underline = false,
+			update_in_insert = false,
+			severity_sort = true,
 		})
 
 		-- -- configure html server
