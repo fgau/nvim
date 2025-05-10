@@ -3,8 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  -- priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
     local mark = require("harpoon.mark")
     local ui = require("harpoon.ui")
@@ -20,5 +18,5 @@ return {
     vim.keymap.set("n", "<S-l>", function() ui.nav_next() end)
     vim.keymap.set("n", "<S-h>", function() ui.nav_prev() end)
 
-  end,
+  end
 }

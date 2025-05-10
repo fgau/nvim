@@ -1,2 +1,3 @@
-require("fgau.core")
-require("fgau.lazy")
+require('config.options')
+require('config.keybinds')
+require('config.lazy')

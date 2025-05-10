@@ -1,5 +1,5 @@
 -- https://github.com/Exafunction/codeium.vim
 return {
-	"Exafunction/codeium.vim",
-	event = "BufEnter",
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
 }

@@ -162,7 +162,16 @@ return {
 
 		-- configure python server
 		lspconfig["pyright"].setup({
-			capabilities = capabilities,
+			-- capabilities = capabilities,
+			capabilities = {
+				textDocument = {
+					publishDiagnostics = {
+						tagSupport = {
+							valueSet = { 2 },
+						},
+					},
+				},
+			},
 			on_attach = on_attach,
 		})
 
