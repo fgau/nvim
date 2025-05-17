@@ -23,22 +23,30 @@ return {
 	    end
 	end
 
-	local signs = { Error = "✘", Warn = "", Info = "◉", Hint = "󰠠" }
-
-	for type, icon in pairs(signs) do
-	    vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticSign" .. type, numhl = "DiagnosticSign" .. type })
-	end
-
 	vim.diagnostic.config({
 	    virtual_text = {
-		prefix = '●',
+		    prefix = '●',
 	    },
 	    underline = {
-		severity = { min = vim.diagnostic.severity.WARN },
+		    severity = { min = vim.diagnostic.severity.WARN },
 	    },
 	    update_in_insert = true,
 	    severity_sort = true,
 	    float = true,
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = " ",
+                [vim.diagnostic.severity.WARN] = " ",
+                [vim.diagnostic.severity.INFO] = "󰋼 ",
+                [vim.diagnostic.severity.HINT] = "󰌵 ",
+                },
+            numhl = {
+                [vim.diagnostic.severity.ERROR] = "",
+                [vim.diagnostic.severity.WARN] = "",
+                [vim.diagnostic.severity.HINT] = "",
+                [vim.diagnostic.severity.INFO] = "",
+            },
+        },
 	})
 
 	-- Setup pyright
