@@ -100,7 +100,21 @@ vim.lsp.config["pyright"] = {
     },
 }
 
-vim.lsp.enable({ "lua-language-server", "pyright", })
+vim.lsp.config["gopls"] = {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            },
+        },
+    },
+}
+
+vim.lsp.enable({ "lua-language-server", "pyright", "gopls" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
