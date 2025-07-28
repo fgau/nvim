@@ -77,7 +77,6 @@ vim.lsp.config["lua-language-server"] = {
     },
 }
 
-
 vim.lsp.config["pyright"] = {
     cmd = { "pyright-langserver", "--stdio" },
     -- root_markers = { ".luarc.json" },
@@ -123,6 +122,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+            vim.keymap.set("i", "<C-Space>", function()
+                vim.lsp.completion.get()
+            end)
         end
     end,
 })
